@@ -1,6 +1,6 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-/package.json
+/node_modules
 # compiled output
 /dist
 /tmp
