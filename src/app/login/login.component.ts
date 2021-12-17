@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
         console.log(this.role);
         // this.role = this.tokenStorage.getUser().role;
         if (this.role[0] === "ADMIN") {
-          showAdminBoard
+          // showAdminBoard
         }
         console.log();
         this.reloadPage();
