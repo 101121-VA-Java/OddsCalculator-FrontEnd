@@ -82,13 +82,13 @@
             name="password"
             [(ngModel)]="form.password"
             required
-            minlength="6"
+            minlength="3"
             #password="ngModel"
           />
           <div class="alert-danger" *ngIf="password.errors && f.submitted">
             <div *ngIf="password.errors['required']">Password is required</div>
             <div *ngIf="password.errors['minlength']">
-              Password must be at least 6 characters
+              Password must be at least 3 characters
             </div>
           </div>
         </div>

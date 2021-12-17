@@ -9,10 +9,9 @@ import { TokenStorageService } from './token-storage.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private roles: string[] = [];
+  private role: string[] = [];
   isLoggedIn = false;
   showAdminBoard = false;
-  showModeratorBoard = false;
   email?: string;
 
   constructor(private tokenStorageService: TokenStorageService) { }
@@ -22,9 +21,9 @@ export class AppComponent {
 
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
-      this.roles = user.roles;
-
-      this.showAdminBoard = this.roles.includes('ADMIN');
+      this.role = user.role;
+      console.log(user.role);
+      this.showAdminBoard = this.role.includes('ADMIN');
 
       this.email = user.email;
     }
@@ -32,6 +31,6 @@ export class AppComponent {
 
   logout(): void {
     this.tokenStorageService.signOut();
-    window.location.reload();
+    
   }
 }
