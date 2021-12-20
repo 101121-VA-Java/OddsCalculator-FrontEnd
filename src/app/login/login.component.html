@@ -2,7 +2,7 @@
     <div class="card card-container">
       <img
         id="profile-img"
-        src="http://www.parrotmonk.com/wp-content/uploads/2012/05/IMG_0400.jpg"
+        src="http://www.quickmeme.com/img/0d/0d7454f9d3fd46e7a4ee50160232b6df559f63f79b36521907e163dd5387a266.jpg"
         class="profile-img-card"
       />
       <form
@@ -38,7 +38,7 @@
             name="password"
             [(ngModel)]="form.password"
             required
-            minlength="6"
+            minlength="2"
             #password="ngModel"
           />
           <div
@@ -48,7 +48,7 @@
           >
             <div *ngIf="password.errors['required']">Password is required</div>
             <div *ngIf="password.errors['minlength']">
-              Password must be at least 6 characters
+              Password must be at least 2 characters
             </div>
           </div>
         </div>
@@ -69,7 +69,7 @@
       </form>
   
       <div class="alert alert-success" *ngIf="isLoggedIn">
-        Logged in as {{ roles }}.
+        Logged in as {{ role }}.
       </div>
     </div>
   </div>
