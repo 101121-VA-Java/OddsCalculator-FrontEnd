@@ -21,4 +21,7 @@ export class UserService {
   getAdminBoard(): Observable<any> {
     return this.http.get(API_URL + 'admin', { responseType: 'text' });
   }
+  getAdminTable(): Observable<any[]> {
+    return this.http.get<any[]>(API_URL + 'admin');
+}
 }

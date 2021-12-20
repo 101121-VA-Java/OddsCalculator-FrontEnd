@@ -21,7 +21,7 @@ export class AppComponent {
 
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
-      this.role = user.role;
+      this.role[0] = this.tokenStorageService.getToken()!;
       console.log(user.role);
       this.showAdminBoard = this.role.includes('ADMIN');
 
@@ -31,6 +31,6 @@ export class AppComponent {
 
   logout(): void {
     this.tokenStorageService.signOut();
-    
+    window.location.reload();
   }
 }

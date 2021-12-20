@@ -18,7 +18,7 @@
             type="text"
             class="form-control"
             name="firstname"
-            [(ngModel)]="form.firstname"
+            [(ngModel)]="form.firstName"
             required
             minlength="3"
             maxlength="20"
@@ -40,7 +40,7 @@
               type="text"
               class="form-control"
               name="lastname"
-              [(ngModel)]="form.lastname"
+              [(ngModel)]="form.lastName"
               required
               minlength="3"
               maxlength="20"
@@ -102,7 +102,7 @@
       </form>
   
       <div class="alert alert-success" *ngIf="isSuccessful">
-        Your registration is successful!
+        Your registration is successful! Please proceed to login.
       </div>
     </div>
   </div>
