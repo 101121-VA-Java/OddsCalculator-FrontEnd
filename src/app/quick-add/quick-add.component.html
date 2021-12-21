@@ -1,0 +1,75 @@
+<form id="quick-add" (ngSubmit)="onSubmit()">
+  <table>
+    <tr>
+      <td style="width: 150px">
+        <label>Initial Hand &nbsp;</label>
+        <br />
+        <select
+          name="initial-hand-type"
+          id="initial-hand-type"
+          (input)="initialHandTypeChange($any($event.target).value)"
+          [(ngModel)]="form.handType"
+          required
+        >
+          <option value="">Select</option>
+          <option value="hard">Hard</option>
+          <option value="soft">Soft</option>
+          <option value="pair">Pair</option>
+        </select>
+        <select
+          name="initial-hand-value"
+          id="initial-hand-value"
+          [(ngModel)]="form.handValue"
+          required
+        >
+          <option *ngFor="let v of values">{{ v }}</option>
+        </select>
+      </td>
+      <td>
+        <label>Dealer Face-Up Card &nbsp;</label>
+        <select
+          name="dealer-hand"
+          id="dealer-hand"
+          [(ngModel)]="form.dealerCard"
+          required
+        >
+          <option value="ace">Ace</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="face">Face Card</option>
+        </select>
+      </td>
+      <td>
+        <label>Did you follow the recommendation? &nbsp;</label>
+        <select name="recommendation" id="recommendation" [(ngModel)]="form.recommendation" required>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </td>
+      <td>
+        <label>Outcome: &nbsp;</label>
+        <select name="outcome" id="outcome" [(ngModel)]="form.outcome" required>
+          <option value="win">Win</option>
+          <option value="lose">Lose</option>
+          <option value="tie">Tie / Push</option>
+        </select>
+      </td>
+      <td>
+        <label>Bet Amount: &nbsp;</label>
+        <input type="number" id="bet" name="bet" [(ngModel)]="form.bet" required />
+      </td>
+    </tr>
+  </table>
+  <div id="quick-add-button">
+    <button type="submit" form="quick-add" value="Submit" id="quick-add-button">
+      Submit
+    </button>
+  </div>
+</form>
