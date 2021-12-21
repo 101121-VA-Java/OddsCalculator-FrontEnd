@@ -34,13 +34,13 @@ export class AuthService {
     //  httpPut, observe: 'response')};
     //{headers:new HttpHeaders().set('Content Type', 'application/json').set('Access-Control-Allow-Origin','*')}
 
-  register(firstName: string, lastName: string, email: string, password: string): Observable<any> {
-    console.log(firstName, lastName, email, password);
+  register(firstName: string, lastName: string, email: string, password: string ): Observable<any> {
+
     return this.http.post(AUTH_API + '/users', {
       firstName,
       lastName,
       email,
       password}, httpOptions);
-      
+
   }
 }
