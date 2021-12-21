@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
+
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
 
 
 const API_URL = 'http://localhost:8080/';
@@ -29,8 +31,11 @@ export class UserService {
   getAdminBoard(): Observable<any> {
     return this.http.get(API_URL + 'admin', { responseType: 'text' });
   }
+
+
   getAdminTable(): Observable<any[]> {
     return this.http.get<any[]>(API_URL + 'admin');
+
   }
   getUserProfile(): Observable<any[]> {
   console.log(idcapture);
@@ -42,6 +47,18 @@ export class UserService {
       firstName,
       lastName,
       password}, httpOptions);
+  }
+
+
+}
+  submitQuickGame( handType:string, handValue: string, dealerCard:string, recommendation:string, outcome:string, bet: number): Observable<any> {
+    return this.http.post(API_URL + 'history', {
+      handType,
+      handValue,
+      dealerCard,
+      recommendation,
+      outcome,
+      bet }, httpOptions);
   }
 
 }
