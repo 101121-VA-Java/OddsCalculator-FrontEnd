@@ -31,7 +31,7 @@ rowData?: Observable<any[]>;
     this.userService.getAdminBoard().subscribe({
       next: data => {
         this.content = data;
-        console.log(data)
+        
       },
       error: err => {
         this.content = JSON.parse(err.error).message;
@@ -39,3 +39,8 @@ rowData?: Observable<any[]>;
     });
   }
 }
+
+
+
+
+

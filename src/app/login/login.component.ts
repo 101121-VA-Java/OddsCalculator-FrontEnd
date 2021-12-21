@@ -34,12 +34,12 @@ export class LoginComponent implements OnInit {
         console.log(data.headers);
         var token = data.headers.get('authorization');
         this.tokenStorage.saveToken(token.split(":")[1]);
-        this.tokenStorage.saveUser(data);
+        this.tokenStorage.saveUser(token.split(":")[0]);
         console.log('we here');
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.role = token.split(":")[1];
-
+        
         console.log(this.role);
         
         console.log();
