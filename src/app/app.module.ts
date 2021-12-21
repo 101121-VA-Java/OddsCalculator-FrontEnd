@@ -11,7 +11,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+
+import { QuickAddComponent } from './quick-add/quick-add.component';
+
 import { AgGridModule } from 'ag-grid-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +24,8 @@ import { AgGridModule } from 'ag-grid-angular';
     HomeComponent,
     ProfileComponent,
     BoardAdminComponent,
-    BoardUserComponent
+    BoardUserComponent,
+    QuickAddComponent
   ],
   imports: [
     BrowserModule,
@@ -32,4 +37,6 @@ import { AgGridModule } from 'ag-grid-angular';
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
+
