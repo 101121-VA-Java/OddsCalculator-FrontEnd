@@ -1,5 +1,14 @@
 <div class="container">
     <header class="jumbotron">
-      <p>{{ content }}</p>
+      <ag-grid-angular
+    style="width: 1000px; height: 500px;"
+    class="ag-theme-alpine"
+    [rowData]="rowData | async"
+    [columnDefs]="columnDefs"
+>
+</ag-grid-angular>
+      <p>
+        
+      </p>
     </header>
   </div>

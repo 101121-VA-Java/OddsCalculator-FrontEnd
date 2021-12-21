@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -11,9 +10,11 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardUserComponent } from './board-user/board-user.component';
-
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+
 import { QuickAddComponent } from './quick-add/quick-add.component';
+
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { QuickAddComponent } from './quick-add/quick-add.component';
   ],
   imports: [
     BrowserModule,
+    AgGridModule.withComponents([]),
     AppRoutingModule,
     FormsModule,
     HttpClientModule
@@ -35,6 +37,6 @@ import { QuickAddComponent } from './quick-add/quick-add.component';
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
 
+export class AppModule { }
 
