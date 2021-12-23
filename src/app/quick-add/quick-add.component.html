@@ -12,9 +12,9 @@
           required
         >
           <option value="">Select</option>
-          <option value="hard">Hard</option>
-          <option value="soft">Soft</option>
-          <option value="pair">Pair</option>
+          <option value="H">Hard</option>
+          <option value="S">Soft</option>
+          <option value="P">Pair</option>
         </select>
         <select
           name="initial-hand-value"
@@ -56,9 +56,9 @@
       <td>
         <label>Outcome: &nbsp;</label>
         <select name="outcome" id="outcome" [(ngModel)]="form.outcome" required>
-          <option value="win">Win</option>
-          <option value="lose">Lose</option>
-          <option value="tie">Tie / Push</option>
+          <option value="0">Win</option>
+          <option value="1">Lose</option>
+          <option value="2">Tie / Push</option>
         </select>
       </td>
       <td>
