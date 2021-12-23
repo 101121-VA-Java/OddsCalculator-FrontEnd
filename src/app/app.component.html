@@ -9,11 +9,11 @@
         <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
       </li>
       <li class="nav-item">
-        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
+        <a href="/profile" class="nav-link" *ngIf ="isLoggedIn" routerLink="profile">Profile</a>
       </li>
       <li class="nav-item">
 
-        <a href="/profile" class="nav-link" *ngIf ="isLoggedIn" routerLink="profile">Profile</a>
+        
 
         <a href="/quick-add" class="nav-link" routerLink="quick-add">Quick Add</a>
 
@@ -40,5 +40,12 @@
   <div class="container">
     <router-outlet></router-outlet>
   </div>
+  <footer style="text-align: center; display: block; margin: auto;">Gambling Problem? <br>24 Hour Confidential National Helpline
+    Call 1-800-522-4700
+    <div><a href ="ncpgambling.org/chat">Chat Online</a>
+    </div>
+    Text 1-800-522-4700
+    
+  </footer>
 </div>
 
