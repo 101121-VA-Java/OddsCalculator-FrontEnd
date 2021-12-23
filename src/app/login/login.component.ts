@@ -9,39 +9,48 @@ import { TokenStorageService } from '../token-storage.service';
 })
 export class LoginComponent implements OnInit {
   form: any = {
-    username: null,
+    email: null,
     password: null
   };
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
-  roles: string[] = [];
+  role: string[] = [];
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
-      this.roles = this.tokenStorage.getUser().roles;
+      this.role[0] = this.tokenStorage.getToken()!;
     }
   }
 
   onSubmit(): void {
     const { email, password } = this.form;
-
+    console.log(password);
     this.authService.login(email, password).subscribe({
       next: data => {
-        this.tokenStorage.saveToken(data.accessToken);
-        this.tokenStorage.saveUser(data);
-
+        console.log(data.headers);
+        var token = data.headers.get('authorization');
+        this.tokenStorage.saveToken(token.split(":")[1]);
+        this.tokenStorage.saveUser(token.split(":")[0]);
+        console.log('we here');
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.roles = this.tokenStorage.getUser().roles;
+        this.role = token.split(":")[1];
+        
+        console.log(this.role);
+        
+        console.log();
         this.reloadPage();
+        console.log(this.tokenStorage.getUser());
+
       },
       error: err => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
+        console.log(this.isLoginFailed);
       }
     });
   }
@@ -49,4 +58,5 @@ export class LoginComponent implements OnInit {
   reloadPage(): void {
     window.location.reload();
   }
+
 }

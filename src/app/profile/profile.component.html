@@ -1,26 +1,128 @@
-<div class="container" *ngIf="currentUser; else loggedOut">
-    <header class="jumbotron">
-      <h3>
-        <strong>{{ currentUser.email }}</strong> Profile
-      </h3>
-    </header>
-    <p>
-      <strong>Token:</strong>
-      {{ currentUser.accessToken.substring(0, 20) }} ...
-      {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}
-    </p>
-    <p>
-      <strong>Email:</strong>
-      {{ currentUser.email }}
-    </p>
-    <strong>Roles:</strong>
-    <ul>
-      <li *ngFor="let role of currentUser.roles">
-        {{ role }}
-      </li>
-    </ul>
+<div class="container">
+  <header class="jumbotron">
+    <h2>
+      <strong></strong> User Profile
+    </h2>
+  </header>
+  <!-- <table id="user-profile">
+    <tr>
+      <th *ngFor = "let column of headers">
+        {{column}}
+      </th>
+    </tr>
+
+    <tr *ngFor = "let row of rows">
+      <td *ngFor = "let column of headers">
+        {{row[column]}}
+      </td>
+    </tr>
+  </table> -->
+  <div>
+    <!-- <div *ngFor = "let column of headers"> 
+       {{column}}
+    </div> -->
+    <div *ngIf = 'user'>
+      User ID: {{user.userID}}
+      First Name: {{user.firstName}}
+      Last Name: {{user.lastName}}
+      Email: {{user.email}}
+      Role: {{user.role}}
+      Wins: {{user.wins}}
+      Losses: {{user.losses}}
+      
+
+    </div>
   </div>
-  
-  <ng-template #loggedOut>
-    Please login.
-  </ng-template>
+  <div>
+    <header class ="jumbotron">
+      <h3>Update Information</h3>
+    </header>
+  </div>
+  <form
+      *ngIf="!isSuccessful"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="firstname"
+          [(ngModel)]="form.firstName"
+          required
+          minlength="3"
+          maxlength="20"
+          #firstname="ngModel"
+        />
+        <div class="alert-danger" *ngIf="firstname.errors && f.submitted">
+          <div *ngIf="firstname.errors['required']">First name is required</div>
+          <div *ngIf="firstname.errors['minlength']">
+            First name must be at least 3 characters
+          </div>
+          <div *ngIf="firstname.errors['maxlength']">
+            First name must be at most 20 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+          <label for="lastname">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="lastname"
+            [(ngModel)]="form.lastName"
+            required
+            minlength="3"
+            maxlength="20"
+            #lastname="ngModel"
+          />
+          <div class="alert-danger" *ngIf="lastname.errors && f.submitted">
+            <div *ngIf="lastname.errors['required']">First name is required</div>
+            <div *ngIf="lastname.errors['minlength']">
+              Last name must be at least 3 characters
+            </div>
+            <div *ngIf="lastname.errors['maxlength']">
+              Last name must be at most 20 characters
+            </div>
+          </div>
+        </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="3"
+          #password="ngModel"
+        />
+        <div class="alert-danger" *ngIf="password.errors && f.submitted">
+          <div *ngIf="password.errors['required']">Password is required</div>
+          <div *ngIf="password.errors['minlength']">
+            Password must be at least 3 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">Update Profile</button>
+      </div>
+      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+        Update profile failed!<br />{{ errorMessage }}
+      </div>
+    </form>
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Update Profile is successful!
+    </div>
+  <!-- <div class="form-group">
+    <button class="btn btn-primary btn-block">
+      Update Profile
+    </button>
+  </div> -->
+</div>
+<ng-template #loggedOut>
+  Please login.
+</ng-template>
