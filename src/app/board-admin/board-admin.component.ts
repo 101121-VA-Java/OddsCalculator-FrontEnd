@@ -17,6 +17,7 @@ export class BoardAdminComponent implements OnInit {
     { field: 'lastName', sortable: true, filter: true},
     { field: 'email', sortable: true, filter: true },
     { field: 'role', sortable: true, filter: true },
+    { field: 'balance', sortable: true, filter: true},
     { field: 'wins', sortable: true, filter: true},
     { field: 'losses', sortable: true, filter: true}
 ];
@@ -29,7 +30,7 @@ export class BoardAdminComponent implements OnInit {
     { field: 'followedrec', sortable: true, filter: true},
     { field: 'dealerhand', sortable: true, filter: true},
     { field: 'bet', sortable: true, filter: true},
-    { field: 'balance', sortable: true, filter: true},
+    { field: 'userbalance', sortable: true, filter: true},
   ]
 rowData?: Observable<any[]>;
 rowDataHist?: Observable<any[]>;

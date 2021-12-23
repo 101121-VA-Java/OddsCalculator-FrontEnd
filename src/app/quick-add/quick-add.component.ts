@@ -64,7 +64,7 @@ export class QuickAddComponent implements OnInit {
     this.userService.submitQuickGame(initialHand, dealerCard, recommendation, outcome, bet, idconvert).subscribe((data: any) => {
       console.log(data);
     });
-    // window.location.reload();
+    window.location.reload();
   }
 
 }
