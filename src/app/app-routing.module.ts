@@ -9,6 +9,7 @@ import { BoardUserComponent } from './board-user/board-user.component';
 
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { QuickAddComponent } from './quick-add/quick-add.component';
+import { HandRecommendationsComponent } from './hand-recommendations/hand-recommendations.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'user', component: BoardUserComponent },
   { path: 'quick-add', component: QuickAddComponent },
+  { path: 'hand-recommendations', component: HandRecommendationsComponent },
 
   { path: 'admin', component: BoardAdminComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }

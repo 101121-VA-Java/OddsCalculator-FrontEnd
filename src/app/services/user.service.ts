@@ -49,8 +49,6 @@ export class UserService {
       password}, httpOptions);
   }
 
-
-}
   submitQuickGame( handType:string, handValue: string, dealerCard:string, recommendation:string, outcome:string, bet: number): Observable<any> {
     return this.http.post(API_URL + 'history', {
       handType,
@@ -59,6 +57,43 @@ export class UserService {
       recommendation,
       outcome,
       bet }, httpOptions);
+  }
+
+  getDealerCard(dealerCard: string){
+    return this.http.get(`https://deckofcardsapi.com/api/deck/new/shuffle/?cards=` + dealerCard);
+  }
+  getDealerCardImage(deckID: string){
+    return this.http.get(`https://deckofcardsapi.com/api/deck/`+ deckID + `/draw/?count=1`);
+  }
+
+  getC1Card(c1Card: string){
+    return this.http.get(`https://deckofcardsapi.com/api/deck/new/shuffle/?cards=` + c1Card);
+  }
+  getC1CardImage(deckID: string){
+    return this.http.get(`https://deckofcardsapi.com/api/deck/`+ deckID + `/draw/?count=1`);
+  }
+
+  getC2Card(c2Card: string){
+    return this.http.get(`https://deckofcardsapi.com/api/deck/new/shuffle/?cards=` + c2Card);
+  }
+  getC2CardImage(deckID: string){
+    return this.http.get(`https://deckofcardsapi.com/api/deck/`+ deckID + `/draw/?count=1`);
+  }
+
+  getRecommendation(playerHand: string, dealerCardValue:string){
+    return this.http.get(API_URL + 'rec/' + playerHand + "/" + dealerCardValue,  { responseType: 'text' } );
+  }
+  submitGameToHistory(initialHand:string, initialDealerHand:string, recommendation:string, outcome:number, bet: number, playerID: number): Observable<any> {
+    console.log(initialHand);
+    
+    return this.http.post(API_URL + 'history', {
+      initialHand,
+      initialDealerHand,
+      recommendation,
+      outcome,
+      bet,
+      playerID}
+      , httpOptions);
   }
 
 }
