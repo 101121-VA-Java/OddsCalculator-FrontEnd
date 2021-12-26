@@ -14,7 +14,6 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { QuickAddComponent } from './quick-add/quick-add.component';
 
 import { AgGridModule } from 'ag-grid-angular';
-import { HandRecommendationsComponent } from './hand-recommendations/hand-recommendations.component';
 
 @NgModule({
   declarations: [
@@ -24,10 +23,7 @@ import { HandRecommendationsComponent } from './hand-recommendations/hand-recomm
     HomeComponent,
     ProfileComponent,
     BoardAdminComponent,
-    BoardUserComponent,
-    QuickAddComponent,
-    HandRecommendationsComponent
-
+    QuickAddComponent
   ],
   imports: [
     BrowserModule,
