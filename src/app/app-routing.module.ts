@@ -5,7 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
-import { BoardUserComponent } from './board-user/board-user.component';
+
 
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { QuickAddComponent } from './quick-add/quick-add.component';
@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'user', component: BoardUserComponent },
+  
   { path: 'quick-add', component: QuickAddComponent },
   { path: 'hand-recommendations', component: HandRecommendationsComponent },
 

@@ -9,7 +9,6 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
-import { BoardUserComponent } from './board-user/board-user.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
 import { QuickAddComponent } from './quick-add/quick-add.component';
@@ -28,6 +27,7 @@ import { HandRecommendationsComponent } from './hand-recommendations/hand-recomm
     BoardUserComponent,
     QuickAddComponent,
     HandRecommendationsComponent
+
   ],
   imports: [
     BrowserModule,

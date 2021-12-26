@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 const API_URL = 'http://localhost:8080/';
 var idcapture = sessionStorage.getItem('auth-user')?.split('"')[1];
 var idconvert = Number(parseInt(idcapture!));
+
 const Params = {params: new HttpParams().set('id',!idconvert)}
 const httpOptions = {
   headers: new HttpHeaders ({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin':'*'}) 
@@ -37,6 +38,10 @@ export class UserService {
     return this.http.get<any[]>(API_URL + 'admin');
 
   }
+  getAdminHistory(): Observable<any[]> {
+    return this.http.get<any[]>(API_URL + 'history');
+
+  }
   getUserProfile(): Observable<any[]> {
   console.log(idcapture);
   console.log(idconvert);
@@ -49,15 +54,25 @@ export class UserService {
       password}, httpOptions);
   }
 
-  submitQuickGame( handType:string, handValue: string, dealerCard:string, recommendation:string, outcome:string, bet: number): Observable<any> {
+
+  submitQuickGame(initialHand:string, initialDealerHand:string, recommendation:string, outcome:number, bet: number, playerID: number): Observable<any> {
+    console.log(initialHand);
+    
+
     return this.http.post(API_URL + 'history', {
-      handType,
-      handValue,
-      dealerCard,
+      initialHand,
+      initialDealerHand,
       recommendation,
       outcome,
-      bet }, httpOptions);
+      bet,
+      playerID}
+      , httpOptions);
   }
+}
+
+
+
+
 
   getDealerCard(dealerCard: string){
     return this.http.get(`https://deckofcardsapi.com/api/deck/new/shuffle/?cards=` + dealerCard);
@@ -97,3 +112,4 @@ export class UserService {
   }
 
 }
+
