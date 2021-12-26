@@ -81,6 +81,7 @@ export class ProfileComponent implements OnInit {
         this.isSignUpFailed = false;
         window.location.reload();
     });
+
     // error: (err: { error: { message: string; }; }) => {
       //   this.errorMessage = err.error.message;
       //   this.isSignUpFailed = true;
@@ -95,7 +96,7 @@ export class ProfileComponent implements OnInit {
       // error: (err: { error: { message: string; }; }) => {
       //   this.errorMessage = err.error.message;
       //   this.isSignUpFailed = true;
-      // }
+      // } Stretch goal of implementing error checking.
     // }
     // );
   }
