@@ -22,17 +22,30 @@
        {{column}}
     </div> -->
     <div *ngIf = 'user'>
-      User ID: {{user.userID}}
-      First Name: {{user.firstName}}
-      Last Name: {{user.lastName}}
-      Email: {{user.email}}
-      Role: {{user.role}}
-      Wins: {{user.wins}}
-      Losses: {{user.losses}}
-      
-
+      User ID: {{user.userID}}<br>
+      First Name: {{user.firstName}}<br>
+      Last Name: {{user.lastName}}<br>
+      Email: {{user.email}}<br>
+      Role: {{user.role}}<br>
+      Wins: {{user.wins}}<br>
+      Losses: {{user.losses}}<br>
+      Win Percentage: {{(user.losses/user.wins)*100}}%<br>
+      <img src="https://quickchart.io/chart/render/zm-9eb07a63-73d7-4c0d-a21c-fe9b6e51ae35?data1={{user.wins}},{{user.losses}}" />
+      <img src="https://quickchart.io/chart/render/zm-b2eceb5b-f95f-494d-9d3f-99b40ad737de?data1={{recwin}},{{recloss}}" />
     </div>
-  </div>
+  
+  
+  <div class="container">
+    <header class="jumbotron">
+      <h2>History</h2>
+      <ag-grid-angular
+    style="width: 1000px; height: 500px;"
+    class="ag-theme-alpine"
+    [rowData]="rowData | async"
+    [columnDefs]="columnDefs"
+    ></ag-grid-angular>
+  </header>
+</div>
   <div>
     <header class ="jumbotron">
       <h3>Update Information</h3>
@@ -122,6 +135,7 @@
       Update Profile
     </button>
   </div> -->
+</div>
 </div>
 <ng-template #loggedOut>
   Please login.
