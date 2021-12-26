@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../token-storage.service';
 import { UserService } from '../services/user.service';
 import { Observable } from 'rxjs';
-import { ColDef } from 'ag-grid-community';
 
 @Component({
   selector: 'app-profile',
@@ -23,24 +22,6 @@ export class ProfileComponent implements OnInit {
   headers = ['userID', 'firstName', 'lastName', 'email', 'role', 'wins', 'losses'];
   rows: any[] = [];
   user: any;
-  recwin: any;
-  recloss: any;
-
-  columnDefs: ColDef[] = [
-    { field: 'gameID', sortable: true, filter: true },
-    { field: 'userbalance', sortable: true, filter: true},
-    { field: 'outcome', sortable: true, filter: true},
-    { field: 'bet', sortable: true, filter: true},
-    { field: 'initialHand'},
-    { field: 'recommendation'},
-    { field: 'followedRec'},
-    { field: 'initialDealerHand'},
-    
-    
-  ]
-  winchart: any;
-  rowData?: Observable<any[]>;
-  userwinpercentage: any;
   
   constructor(private userService: UserService) {
     
@@ -50,25 +31,11 @@ export class ProfileComponent implements OnInit {
       console.log(res)
       this.user = res
       console.log(this.rows);
-      const userwinpercentage = ((this.user.losses / this.user.wins) * 100)
-      console.log(userwinpercentage);
-      this.winchart = this.userService.viewWinChart(this.user.wins, this.user.losses);
       
     });
-    this.rowData = this.userService.getUserHistory();
-    console.log(this.rowData);
+    
+    console.log(this.rows);
     console.log("Hitting init");
-    this.userService.getUserRecWin().subscribe((res:any) => {
-      console.log(res);
-      this.recwin = res;
-      
-    });
-    this.userService.getUserRecLosses().subscribe((res:any) => {
-      console.log(res);
-      this.recloss = res;
-      
-    });
-
   }
   // renderRows()
   onSubmit(): void {
