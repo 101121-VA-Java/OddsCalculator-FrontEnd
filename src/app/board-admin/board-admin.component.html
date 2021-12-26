@@ -1,14 +1,27 @@
 <div class="container">
     <header class="jumbotron">
+      <h2>User Information</h2>
       <ag-grid-angular
     style="width: 1000px; height: 500px;"
     class="ag-theme-alpine"
     [rowData]="rowData | async"
     [columnDefs]="columnDefs"
+    ></ag-grid-angular>
+  </header>
+</div>
+
+
+
+      
+    
+<div class="container">
+  <header class="jumbotron">
+    <ag-grid-angular
+  style="width: 1000px; height: 500px;"
+  class="ag-theme-alpine"
+  [rowData]="rowDataHist | async"
+  [columnDefs]="columnDefsHist"
 >
 </ag-grid-angular>
-      <p>
-        
-      </p>
-    </header>
-  </div>
+</header>
+</div>
