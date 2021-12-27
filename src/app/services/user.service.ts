@@ -64,14 +64,14 @@ export class UserService {
     return this.http.get<any[]>(API_HIST, Params)
   }
 
-  submitQuickGame(initialHand:string, initialDealerHand:string, recommendation:string, outcome:number, bet: number, playerID: number): Observable<any> {
+  submitQuickGame(initialHand:string, initialDealerHand:string, followedRec:string, outcome:number, bet: number, playerID: number): Observable<any> {
     console.log(initialHand);
     
 
     return this.http.post(API_URL + 'history', {
       initialHand,
       initialDealerHand,
-      recommendation,
+      followedRec,
       outcome,
       bet,
       playerID}
@@ -107,13 +107,14 @@ export class UserService {
   getRecommendation(playerHand: string, dealerCardValue:string){
     return this.http.get(API_URL + 'rec/' + playerHand + "/" + dealerCardValue,  { responseType: 'text' } );
   }
-  submitGameToHistory(initialHand:string, initialDealerHand:string, recommendation:string, outcome:number, bet: number, playerID: number): Observable<any> {
+  submitGameToHistory(initialHand:string, initialDealerHand:string, recommendation:string, followedRec:string, outcome:number, bet: number, playerID: number): Observable<any> {
     console.log(initialHand);
     
     return this.http.post(API_URL + 'history', {
       initialHand,
       initialDealerHand,
       recommendation,
+      followedRec,
       outcome,
       bet,
       playerID}

@@ -25,10 +25,10 @@ export class BoardAdminComponent implements OnInit {
     { field: 'gameID', sortable: true, filter: true },
     { field: 'playerID', sortable: true, filter: true},
     { field: 'outcome', sortable: true, filter: true},
-    { field: 'initialhand', sortable: true, filter: true },
+    { field: 'initialHand', sortable: true, filter: true },
     { field: 'recommendation', sortable: true, filter: true },
-    { field: 'followedrec', sortable: true, filter: true},
-    { field: 'dealerhand', sortable: true, filter: true},
+    { field: 'followedRec', sortable: true, filter: true},
+    { field: 'initialDealerHand', sortable: true, filter: true},
     { field: 'bet', sortable: true, filter: true},
     { field: 'userbalance', sortable: true, filter: true},
   ]

@@ -158,7 +158,7 @@ export class HandRecommendationsComponent implements OnInit {
       idconvert = 0;
     }
 
-    this.userService.submitGameToHistory(this.playerHand, this.dealerCardValue, this.follow, this.outcome, this.bet, idconvert);
+    this.userService.submitGameToHistory(this.playerHand, this.dealerCardValue, this.recommendation, this.follow, this.outcome, this.bet, idconvert);
 
     this.showAddGame = false;
     // window.location.reload();
