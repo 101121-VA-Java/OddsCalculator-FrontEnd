@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 
 
-const API_URL = 'http://localhost:8080/';
+const API_URL = 'http://ec2-18-222-34-240.us-east-2.compute.amazonaws.com:8080/';
 var idcapture = sessionStorage.getItem('auth-user')?.split('"')[1];
 var idconvert = Number(parseInt(idcapture!));
 
@@ -14,11 +14,11 @@ const httpOptions = {
   headers: new HttpHeaders ({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin':'*'}) 
   
 };
-const API_PATH = `http://localhost:8080/users/${idconvert}`;
-const API_HIST = `http://localhost:8080/history/user/${idconvert}`;
+const API_PATH = `http://ec2-18-222-34-240.us-east-2.compute.amazonaws.com:8080/users/${idconvert}`;
+const API_HIST = `http://ec2-18-222-34-240.us-east-2.compute.amazonaws.com:8080/history/user/${idconvert}`;
 const winnerchart = `https://quickchart.io/chart/render/zm-9eb07a63-73d7-4c0d-a21c-fe9b6e51ae35?data1=`
 console.log(winnerchart + '35' + ',' + '20');
-const API_REC =`http://localhost:8080/history/user/${idconvert}`;
+const API_REC =`http://ec2-18-222-34-240.us-east-2.compute.amazonaws.com:8080/history/user/${idconvert}`;
 
 @Injectable({
   providedIn: 'root'

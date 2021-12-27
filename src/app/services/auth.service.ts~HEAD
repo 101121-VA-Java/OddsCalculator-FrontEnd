@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
-const AUTH_API = 'http://localhost:8080' //Check to see if url/port is format or just URL
+const AUTH_API = 'http://ec2-18-222-34-240.us-east-2.compute.amazonaws.com:8080' //Check to see if url/port is format or just URL
 const httpOptions = {
   headers: new HttpHeaders ({ 'Content-Type': 'application/json'})
 };
