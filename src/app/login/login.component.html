@@ -1,17 +1,19 @@
-<div class="col-md-12">
-    <div class="card card-container">
-      <img
-        id="profile-img"
-        src="http://www.quickmeme.com/img/0d/0d7454f9d3fd46e7a4ee50160232b6df559f63f79b36521907e163dd5387a266.jpg"
-        class="profile-img-card"
+<div class="col-md-12 login-container">
+  <div class="card card-container">
+    <img
+        id="login-img"
+        src="../../assets/blackjacklogo.png"
+        class="login-img-card"
       />
-      <form
-        *ngIf="!isLoggedIn"
-        name="form"
-        (ngSubmit)="f.form.valid && onSubmit()"
-        #f="ngForm"
-        novalidate
-      >
+    <form
+      *ngIf="!isLoggedIn"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="menu-container">
+        <h3 style="text-align: center;">Login</h3>
         <div class="form-group">
           <label for="email">E-mail</label>
           <input
@@ -53,23 +55,23 @@
           </div>
         </div>
         <div class="form-group">
-          <button class="btn btn-primary btn-block">
-            Login
-          </button>
+          <button class="btn btn-primary btn-block">Login</button>
         </div>
+
         <div class="form-group">
           <div
             class="alert alert-danger"
             role="alert"
             *ngIf="f.submitted && isLoginFailed"
           >
-            Login failed: {{ errorMessage }}
+            Login failed. Please Try Again or Sign Up!
           </div>
         </div>
-      </form>
-  
-      <div class="alert alert-success" *ngIf="isLoggedIn">
-        Logged in as {{ role }}.
       </div>
+    </form>
+
+    <div class="alert alert-success" *ngIf="isLoggedIn">
+      Logged in as {{ role }}.
     </div>
   </div>
+</div>

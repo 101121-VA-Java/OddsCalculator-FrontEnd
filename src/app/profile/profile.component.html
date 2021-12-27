@@ -1,8 +1,6 @@
-<div class="container">
+<div class="container profile-container">
   <header class="jumbotron">
-    <h2>
-      <strong></strong> User Profile
-    </h2>
+    <h2><strong></strong> User Profile</h2>
   </header>
   <!-- <table id="user-profile">
     <tr>
@@ -21,24 +19,45 @@
     <!-- <div *ngFor = "let column of headers"> 
        {{column}}
     </div> -->
-    <div *ngIf = 'user'>
-      User ID: {{user.userID}}
-      First Name: {{user.firstName}}
-      Last Name: {{user.lastName}}
-      Email: {{user.email}}
-      Role: {{user.role}}
-      Wins: {{user.wins}}
-      Losses: {{user.losses}}
-      
-
+    <div *ngIf="user" style="text-align: center;">
+      <b>User ID:</b> {{ user.userID }}<br />
+      <b>First Name:</b> {{ user.firstName }}
+      <b>Last Name:</b> {{ user.lastName }}<br />
+      <b>Email:</b> {{ user.email }}<br />
+      <b>Role:</b> {{ user.role }}<br />
+      <b>Wins:</b> {{ user.wins }}
+      <b>Losses:</b> {{ user.losses }}<br />
+      <b>Win Percentage:</b> {{ (user.wins / (user.wins+user.losses)) * 100 }}%<br />
+      <img
+        src="https://quickchart.io/chart/render/zm-9eb07a63-73d7-4c0d-a21c-fe9b6e51ae35?data1={{
+          user.wins
+        }},{{ user.losses }}"
+      />
+      <img
+        src="https://quickchart.io/chart/render/zm-b2eceb5b-f95f-494d-9d3f-99b40ad737de?data1={{
+          recwin
+        }},{{ recloss }}"
+      />
     </div>
-  </div>
-  <div>
-    <header class ="jumbotron">
-      <h3>Update Information</h3>
-    </header>
-  </div>
-  <form
+
+    <div class="">
+      <header class="jumbotron">
+        <h2>History</h2>
+        <br />
+        <ag-grid-angular
+          style="width: 1000px; height: 500px"
+          class="ag-theme-alpine"
+          [rowData]="rowData | async"
+          [columnDefs]="columnDefs"
+        ></ag-grid-angular>
+      </header>
+    </div>
+    <div>
+      <header class="jumbotron">
+        <h3>Update Information</h3>
+      </header>
+    </div>
+    <form
       *ngIf="!isSuccessful"
       name="form"
       (ngSubmit)="f.form.valid && onSubmit()"
@@ -68,27 +87,27 @@
         </div>
       </div>
       <div class="form-group">
-          <label for="lastname">Last Name</label>
-          <input
-            type="text"
-            class="form-control"
-            name="lastname"
-            [(ngModel)]="form.lastName"
-            required
-            minlength="3"
-            maxlength="20"
-            #lastname="ngModel"
-          />
-          <div class="alert-danger" *ngIf="lastname.errors && f.submitted">
-            <div *ngIf="lastname.errors['required']">First name is required</div>
-            <div *ngIf="lastname.errors['minlength']">
-              Last name must be at least 3 characters
-            </div>
-            <div *ngIf="lastname.errors['maxlength']">
-              Last name must be at most 20 characters
-            </div>
+        <label for="lastname">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="lastname"
+          [(ngModel)]="form.lastName"
+          required
+          minlength="3"
+          maxlength="20"
+          #lastname="ngModel"
+        />
+        <div class="alert-danger" *ngIf="lastname.errors && f.submitted">
+          <div *ngIf="lastname.errors['required']">First name is required</div>
+          <div *ngIf="lastname.errors['minlength']">
+            Last name must be at least 3 characters
+          </div>
+          <div *ngIf="lastname.errors['maxlength']">
+            Last name must be at most 20 characters
           </div>
         </div>
+      </div>
       <div class="form-group">
         <label for="password">Password</label>
         <input
@@ -117,12 +136,11 @@
     <div class="alert alert-success" *ngIf="isSuccessful">
       Update Profile is successful!
     </div>
-  <!-- <div class="form-group">
+    <!-- <div class="form-group">
     <button class="btn btn-primary btn-block">
       Update Profile
     </button>
   </div> -->
+  </div>
 </div>
-<ng-template #loggedOut>
-  Please login.
-</ng-template>
+<ng-template #loggedOut> Please login. </ng-template>
