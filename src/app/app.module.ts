@@ -24,7 +24,7 @@ import { HandRecommendationsComponent } from './hand-recommendations/hand-recomm
     HomeComponent,
     ProfileComponent,
     BoardAdminComponent,
-    BoardUserComponent,
+    
     QuickAddComponent,
     HandRecommendationsComponent
 

@@ -85,12 +85,6 @@ export class UserService {
   getUserRecLosses(): Observable<any> {
     return this.http.get(API_REC + `/notrec`, Params);
   }
-}
-
-
-
-
-
   getDealerCard(dealerCard: string){
     return this.http.get(`https://deckofcardsapi.com/api/deck/new/shuffle/?cards=` + dealerCard);
   }
@@ -130,3 +124,10 @@ export class UserService {
 
 }
 
+
+
+
+
+
+
+ 
