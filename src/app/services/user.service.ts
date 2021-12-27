@@ -68,7 +68,7 @@ export class UserService {
       playerID}
       , httpOptions);
   }
-}
+
 
 
 
