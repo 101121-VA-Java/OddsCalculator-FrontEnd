@@ -109,6 +109,11 @@ export class HandRecommendationsComponent implements OnInit {
     if(this.c2Value == "0" || this.c2Value == "J" || this.c2Value == "Q" || this.c2Value == "K" ){
       this.c2Value = "10";
     }
+    if((this.c1Value == "10" && this.c2Value == "A") || (this.c2Value == "10" && this.c1Value == "A")){
+      this.recommendation = "BlackJack!";
+      this.showAddGame = true;
+      return;
+    }
 
     if(this.c1Value == this.c2Value){
       this.playerHand = "P_" + this.c1Value;

@@ -1,9 +1,9 @@
-<div class="col-md-12">
+<div class="col-md-12 sign-up-container">
     <div class="card card-container">
       <img
-        id="profile-img"
-        src="https://i.redd.it/9i58vusqet021.jpg"
-        class="profile-img-card"
+        id="sign-up-img"
+        src="../../assets/blackjacklogo.png"
+        class="sign-up-img-card"
       />
       <form
         *ngIf="!isSuccessful"
@@ -12,6 +12,7 @@
         #f="ngForm"
         novalidate
       >
+      <h3 style="text-align: center;">Register</h3>
         <div class="form-group">
           <label for="firstname">First Name</label>
           <input

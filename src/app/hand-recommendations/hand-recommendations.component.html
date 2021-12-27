@@ -1,120 +1,123 @@
-<div>
-  <label>Dealer Face Up Card: &nbsp;</label>
-  <select
-    name="dealer-face-up-value"
-    id="dealer-face-up-value"
-    (change)="dealerCardValueChangeHandler($event)"
-    required
-  >
-    <option value="">Select</option>
-    <option value="A">Ace</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="0">10</option>
-    <option value="J">Jack</option>
-    <option value="Q">Queen</option>
-    <option value="K">King</option>
-  </select>
-  <select
-    name="dealer-face-up-type"
-    id="dealer-face-up-type"
-    (change)="dealerCardTypeChangeHandler($event)"
-    required
-  >
-    <option value="">Select</option>
-    <option value="H">Hearts</option>
-    <option value="D">Diamonds</option>
-    <option value="C">Clubs</option>
-    <option value="S">Spades</option>
-  </select>
-  <img src="{{ dealerCardImage }}" />
-</div>
-<div>
-  <label>Card 1: &nbsp;</label>
-  <select
-    name="c1-value"
-    id="c1-value"
-    (change)="c1ValueChangeHandler($event)"
-    required
-  >
-    <option value="">Select</option>
-    <option value="A">Ace</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="0">10</option>
-    <option value="J">Jack</option>
-    <option value="Q">Queen</option>
-    <option value="K">King</option>
-  </select>
-  <select
-    name="c1-type"
-    id="c1-type"
-    (change)="c1TypeChangeHandler($event)"
-    required
-  >
-    <option value="">Select</option>
-    <option value="H">Hearts</option>
-    <option value="D">Diamonds</option>
-    <option value="C">Clubs</option>
-    <option value="S">Spades</option>
-  </select>
-  <img src="{{ c1CardImage }}" />
+<div class="hand-rec-container">
+  <h3>Insert Your Hand for a Recommendation:</h3>
+  <div class="dealer-card">
+    <label>Dealer Face Up Card: &nbsp;</label>
+    <select
+      name="dealer-face-up-value"
+      id="dealer-face-up-value"
+      (change)="dealerCardValueChangeHandler($event)"
+      required
+    >
+      <option value="">Select</option>
+      <option value="A">Ace</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="0">10</option>
+      <option value="J">Jack</option>
+      <option value="Q">Queen</option>
+      <option value="K">King</option>
+    </select>
+    <select
+      name="dealer-face-up-type"
+      id="dealer-face-up-type"
+      (change)="dealerCardTypeChangeHandler($event)"
+      required
+    >
+      <option value="">Select</option>
+      <option value="H">Hearts</option>
+      <option value="D">Diamonds</option>
+      <option value="C">Clubs</option>
+      <option value="S">Spades</option>
+    </select>
+    <img class="dealer-card-img" src="{{ dealerCardImage }}" />
+  </div>
+  <div class="player-cards">
+    <label>Card 1: &nbsp;</label>
+    <select
+      name="c1-value"
+      id="c1-value"
+      (change)="c1ValueChangeHandler($event)"
+      required
+    >
+      <option value="">Select</option>
+      <option value="A">Ace</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="0">10</option>
+      <option value="J">Jack</option>
+      <option value="Q">Queen</option>
+      <option value="K">King</option>
+    </select>
+    <select
+      name="c1-type"
+      id="c1-type"
+      (change)="c1TypeChangeHandler($event)"
+      required
+    >
+      <option value="">Select</option>
+      <option value="H">Hearts</option>
+      <option value="D">Diamonds</option>
+      <option value="C">Clubs</option>
+      <option value="S">Spades</option>
+    </select>
+    <img class="card-img-1" src="{{ c1CardImage }}" />
 
-  <label>Card 2: &nbsp;</label>
-  <select
-    name="c2-value"
-    id="c2-value"
-    (change)="c2ValueChangeHandler($event)"
-    required
-  >
-    <option value="">Select</option>
-    <option value="A">Ace</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="0">10</option>
-    <option value="J">Jack</option>
-    <option value="Q">Queen</option>
-    <option value="K">King</option>
-  </select>
-  <select
-    name="c2-type"
-    id="c2-type"
-    (change)="c2TypeChangeHandler($event)"
-    required
-  >
-    <option value="">Select</option>
-    <option value="H">Hearts</option>
-    <option value="D">Diamonds</option>
-    <option value="C">Clubs</option>
-    <option value="S">Spades</option>
-  </select>
-  <img src="{{ c2CardImage }}" />
+    <label>Card 2: &nbsp;</label>
+    <select
+      name="c2-value"
+      id="c2-value"
+      (change)="c2ValueChangeHandler($event)"
+      required
+    >
+      <option value="">Select</option>
+      <option value="A">Ace</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="0">10</option>
+      <option value="J">Jack</option>
+      <option value="Q">Queen</option>
+      <option value="K">King</option>
+    </select>
+    <select
+      name="c2-type"
+      id="c2-type"
+      (change)="c2TypeChangeHandler($event)"
+      required
+    >
+      <option value="">Select</option>
+      <option value="H">Hearts</option>
+      <option value="D">Diamonds</option>
+      <option value="C">Clubs</option>
+      <option value="S">Spades</option>
+    </select>
+    <img src="{{ c2CardImage }}" />
+  </div>
+  <div>
+    <button (click)="showRecommendation()">Generate recommendation</button>
+  </div>
+  <div class="recommendation-text">
+    {{ recommendation }}
+  </div>
 </div>
-<div>
-  <button (click)="showRecommendation()">Generate recommendation</button>
-</div>
-<div>
-  {{ recommendation }}
-</div>
-<div *ngIf="showAddGame">
+<div *ngIf="showAddGame" class="add-game-container">
   <label>Did you follow the recommendation? &nbsp;</label>
   <select
     name="follow-recommendation"
@@ -136,8 +139,9 @@
     <option value="1">Lose</option>
     <option value="2">Tie / Push</option>
   </select>
+  <br />
   <label>Bet Amount: &nbsp;</label>
-  <input id="bet" name="bet" required (change)="betChangeHandler($event)"/>
+  <input id="bet" name="bet" required (change)="betChangeHandler($event)" />
 
   <div>
     <button id="submit-game-button" (click)="submitGame()">Submit Game</button>
